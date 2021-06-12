@@ -1,0 +1,55 @@
+@mixin html()
+    @include background(#018ded)
+    background-size: cover
+    font-family: 'helvetica neue'
+    text-align: center
+    font-size: 10px
+
+@mixin body()
+    @include margin_and_padding()
+    font-size: 2rem
+    display: flex
+    flex: 1
+    min-height: 100vh
+    align-items: center
+
+@mixin clock()
+    @include width_and_height(30rem, 30rem)
+    @include margin_and_padding(50px auto, 2rem)
+    @include box-shadow()
+    border: 20px solid white
+    border-radius: 50%
+    position: relative
+    
+
+@mixin clock-face()
+    @include width_and_height(100%, 100%)
+    @include tranform(translateY(-3px))
+    position: relative
+
+@mixin hand()
+    @include width_and_height(50%, 6px)
+    @include tranform(rotate(90deg))
+    @include background(black)
+    position: absolute
+    top: 50%
+    transform-origin: 100%
+    transition: all 0.5s
+    transition-timing-function: cubic-bezier(0.1,2.7,0.58,1) 
+
+@mixin width_and_height($w, $h)
+    width: $w
+    height: $h
+    
+@mixin margin_and_padding($m:0, $p:0)
+    margin: $m
+    padding: $p
+
+@mixin tranform($t)
+    transform: $t
+
+@mixin box-shadow()
+    box-shadow: 0 0 0 4px rgba(0,0,0,0.1), inset 0 0 0 3px #efefef, inset 0 0 10px black, 0 0 10px rgba(0,0,0,0.2)
+
+@mixin background($b)
+    background: $b
